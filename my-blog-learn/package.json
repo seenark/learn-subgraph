@@ -1,0 +1,16 @@
+{
+  "name": "my-blog-learn",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ seenark/my-blog-learn",
+    "create-local": "graph create --node http://localhost:8020/ seenark/my-blog-learn",
+    "remove-local": "graph remove --node http://localhost:8020/ seenark/my-blog-learn",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 seenark/my-blog-learn"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.26.0",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}

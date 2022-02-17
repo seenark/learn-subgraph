@@ -1,0 +1,28 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Blog
+    network: mumbai
+    source:
+      address: "0x4aeC6F0F9C733D26fC5Eda75787Ac930d347012e"
+      abi: Blog
+      startBlock: 25014670
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PostCreated
+        - PostUpdated
+        - Post
+      abis:
+        - name: Blog
+          file: ./abis/Blog.json
+      eventHandlers:
+        - event: PostCreated(uint256,string,string)
+          handler: handlePostCreated
+        - event: PostUpdated(uint256,string,string,bool)
+          handler: handlePostUpdated
+      file: ./src/mapping.ts
